@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const postTypeFilter = urlParams.get('postTypeFilter') || 'Creatures';
 
+    const titleElement = document.querySelector('#table-title');
+    titleElement.textContent = `Top 225 for ${postTypeFilter}`;
+
     const apiUrl = `https://glatch-proxy1.up.railway.app/apis/posts-api/v1/content-posts/findFeedPosts?postTypeFilter=${postTypeFilter}&feedType=Top&limit=225`;
 
     fetch(apiUrl, {
@@ -36,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${placementId}</td>
                 <td><a href="https://www.roblox.com/users/${item.creatorUserId}/profile">${item.creatorUsername}</a></td>
                 <td><a href="${item.screenshotMetadata.fullSizeUrl}"><img src="${item.screenshotMetadata.fullSizeUrl}" alt="Screenshot" width="256" height="144"></a></td>
+                <td><a href="https://www.roblox.com/games/${item.experienceContext.placeId}/-">${item.experienceContext.placeId}</a></td>
             `;
             tableBody.appendChild(row);
             placementId++;
