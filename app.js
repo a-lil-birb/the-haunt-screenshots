@@ -29,13 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
     function populateTable(data) {
         const tableBody = document.querySelector('#data-table tbody');
         data = data["posts"]
+        let placementId = 1;
         data.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
+                <td>${placementId}</td>
                 <td><a href="https://www.roblox.com/users/${item.creatorUserId}/profile">${item.creatorUsername}</a></td>
                 <td><a href="${item.screenshotMetadata.fullSizeUrl}"><img src="${item.screenshotMetadata.fullSizeUrl}" alt="Screenshot" width="256" height="144"></a></td>
             `;
             tableBody.appendChild(row);
+            placementId++;
         });
     }
 });
