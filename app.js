@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td><a href="https://www.roblox.com/users/${item.creatorUserId}/profile">${item.creatorUsername}</a></td>
                 <td><a href="${item.screenshotMetadata.fullSizeUrl}"><img src="${item.screenshotMetadata.fullSizeUrl}" alt="Screenshot" width="256" height="144"></a></td>
                 <td><a href="https://www.roblox.com/games/${item.experienceContext.placeId}/-">${item.experienceContext.placeId}</a></td>
-                <td>${(new Date(item.uploadedAtTimestamp)).toLocaleString}</td>
+                <td>${(new Date(item.uploadedAtTimestamp)).toLocaleString()}</td>
             `;
             tableBody.appendChild(row);
             placementId++;
