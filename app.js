@@ -35,12 +35,22 @@ document.addEventListener('DOMContentLoaded', () => {
         let placementId = 1;
         data.forEach(item => {
             const row = document.createElement('tr');
+
+            var accessoryStringbuilder = [];
+            var additionalInfo = JSON.parse(item.additionalInfo);
+            if ("avatarItems" in additionalInfo) {
+                additionalInfo["avatarItems"].forEach(accessory => {
+                    accessoryStringbuilder.push(`https://www.roblox.com/catalog/${accessory}/-`)
+                });
+            }
+
             row.innerHTML = `
                 <td>${placementId}</td>
                 <td><a href="https://www.roblox.com/users/${item.creatorUserId}/profile">${item.creatorUsername}</a></td>
                 <td><a href="${item.screenshotMetadata.fullSizeUrl}"><img src="${item.screenshotMetadata.fullSizeUrl}" alt="Screenshot" width="256" height="144"></a></td>
                 <td><a href="https://www.roblox.com/games/${item.experienceContext.placeId}/-">${item.experienceContext.placeId}</a></td>
                 <td>${(new Date(item.uploadedAtTimestamp)).toLocaleString()}</td>
+                <td>${accessoryStringbuilder.join(", ")}</td>
             `;
             tableBody.appendChild(row);
             placementId++;
