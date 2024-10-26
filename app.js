@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             var accessoryStringbuilder = [];
             var additionalInfo = JSON.parse(item.additionalInfo);
-            if ("avatarItems" in additionalInfo) {
+            if (additionalInfo != null && "avatarItems" in additionalInfo) {
                 additionalInfo["avatarItems"].forEach(accessory => {
                     accessoryStringbuilder.push(`<a href="https://www.roblox.com/catalog/${accessory}/-">${accessory}</a>`)
                 });
