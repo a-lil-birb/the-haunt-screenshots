@@ -20,6 +20,10 @@ table, th, td {
     border: 1px solid #ddd;
 }
 
+#categories {
+    table-layout: fixed;
+}
+
 th {
     background-color: #f2f2f2;
 }
