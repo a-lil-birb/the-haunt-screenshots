@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const postTypeFilter = urlParams.get('postTypeFilter') || 'Creatures';
 
     const titleElement = document.querySelector('#table-title');
-    titleElement.textContent = `Top 225 for ${postTypeFilter}`;
+    titleElement.textContent = `Top Screenshots for ${postTypeFilter}`;
 
     const apiUrl = `https://glatch-proxy1.up.railway.app/apis/posts-api/v1/content-posts/findFeedPosts?postTypeFilter=${postTypeFilter}&feedType=Top&limit=225`;
 
